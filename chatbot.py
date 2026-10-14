@@ -18,6 +18,7 @@ DAFTAR_MODEL = [
     "gemini-3.7-flash",
     "gemini-3.5-flash-lite",
     "gemini-3.1-flash-lite",
+    "gemini-flash-lite-latest",
 ]
 PERCOBAAN_PER_MODEL = 2  # berapa kali mencoba ulang tiap model
 JEDA_DETIK = 3           # jeda antar percobaan
