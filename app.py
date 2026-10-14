@@ -15,6 +15,10 @@ load_dotenv()
 st.set_page_config(page_title="Kopi Senja CS", page_icon="☕")
 st.title("☕ Kopi Senja")
 st.caption("Customer Service dengan asisten Sena")
+st.info(
+    "☕ Selamat datang di Kopi Senja! "
+    "Silakan ketik pertanyaan tentang produk atau layanan kami."
+)
 
 api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
@@ -28,6 +32,15 @@ if "riwayat" not in st.session_state:
         {"role": "assistant", "text": "Halo! Saya Sena dari Kopi Senja. Ada yang bisa saya bantu?"}
     ]
 
+# Tombol untuk menghapus percakapan
+if st.button("🗑️ Hapus Percakapan"):
+    st.session_state.riwayat = [
+        {
+            "role": "assistant",
+            "text": "Halo! Saya Sena dari Kopi Senja. Ada yang bisa saya bantu?"
+        }
+    ]
+    st.rerun()
 # tampilkan riwayat chat
 for item in st.session_state.riwayat:
     with st.chat_message(item["role"]):
